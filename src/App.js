@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import data from "./data.json";
+
+const OsxButtons = () => {
+  return <></>;
+};
+
+const Filter = ({ icon, name }) => {
+  return <p className="filter">{name}</p>;
+};
+
+const IssueGroup = ({ date, issues }) => {
+  return (
+    <section className="issue-group">
+      <h2>{date}</h2>
+      <ul>
+        {issues.map((issue) => (
+          <Issue key={issue.name} {...issue} />
+        ))}
+      </ul>
+    </section>
+  );
+};
+
+const Issue = ({ name, selected }) => {
+  return (
+    <li className="issue">
+      <span>{name}</span>
+      <span>state: {selected}</span>
+    </li>
+  );
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="app-window">
+        <div className="sidebar">
+          <OsxButtons />
+          <Filter name={data.filters[0].name} />
+        </div>
+        <main>
+          {data.issues.map((issue) => (
+            <IssueGroup key={issue.date} {...issue} />
+          ))}
+        </main>
+      </div>
     </div>
   );
 }
