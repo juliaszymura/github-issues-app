@@ -1,0 +1,77 @@
+{
+  "filters": [
+    {
+      "name": "All",
+      "count": 12,
+      "icon": "github"
+    },
+    {
+      "name": "Open",
+      "count": 4,
+      "icon": "open-issue"
+    },
+    {
+      "name": "Closed",
+      "count": 8,
+      "icon": "closed-issue"
+    }
+  ],
+  "issues": [
+    {
+      "date": "2016-07-19",
+      "issues": [
+        {
+          "name": "Page changes",
+          "selected": true
+        },
+        {
+          "name": "Review of last issues",
+          "selected": true
+        }
+      ]
+    },
+    {
+      "date": "2016-07-18",
+      "issues": [
+        {
+          "name": "Visual UI Update Review",
+          "selected": false
+        },
+        {
+          "name": "Sidebar changes",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "date": "2016-07-15",
+      "issues": [
+        {
+          "name": "Crash update",
+          "selected": false
+        },
+        {
+          "name": "Page visual UI Update Review",
+          "selected": true
+        },
+        {
+          "name": "Sidebar update",
+          "selected": false
+        }
+      ]
+    },
+    {
+      "date": "2016-07-14",
+      "issues": [
+        {
+          "name": "Crash issue",
+          "selected": true
+        },
+        {
+          "name": "Visual update & Crash resolve",
+          "selected": true
+        }
+      ]
+    }
+  ]
+}
