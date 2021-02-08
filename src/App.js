@@ -54,9 +54,9 @@ const IssueGroup = ({ date, issues }) => {
 
 const Issue = ({ name, selected }) => {
   const starIcon = selected ? (
-    <StarIcon fill="black" />
+    <StarIcon className="star-icon-filled" />
   ) : (
-    <StarIcon fill="transparent" stroke="#E0E0E0" />
+    <StarIcon className="star-icon-outline" />
   );
 
   return (
