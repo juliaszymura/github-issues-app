@@ -2,27 +2,31 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
-.App {
-  background-color: #282c34;
+body {
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 10px;
+
+  color: white;
+
   min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 
   background-image: url("./assets/background.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
-
-  box-sizing: border-box;
+  background-size: cover;
 }
 
-.app-window {
+.app {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -48,28 +52,28 @@
 .osx-buttons {
   display: flex;
   flex-direction: row;
-  gap: 7px;
+  gap: 10px;
   padding: 15px;
   border-radius: 9px 0 0 0;
   background: rgb(16, 16, 34);
 }
 
-.osx-buttons button {
+.osx-buttons__button {
   height: 10px;
   width: 10px;
   border: none;
   border-radius: 5px;
 }
 
-.osx-buttons .green {
+.osx-buttons__button--green {
   background: #00cd46;
 }
 
-.osx-buttons .yellow {
+.osx-buttons__button--yellow {
   background: #ffbc1b;
 }
 
-.osx-buttons .red {
+.osx-buttons__button--red {
   background: #ff594f;
 }
 
@@ -95,12 +99,12 @@
 .filter:active {
   background: #434469;
 }
-.filter .issue-count {
+.filter__issue-count {
   color: #8a8995;
   margin-left: auto;
 }
 
-main {
+.issues {
   height: 100%;
   width: 500px;
   border-radius: 0 9px 9px 0;
@@ -116,8 +120,8 @@ main {
   overflow: auto;
 }
 
-.issue-group,
-.issue-group ul {
+.issues__group,
+.issues__group__list {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -125,18 +129,14 @@ main {
   gap: 5px;
 }
 
-.issue-group {
+.issues__group {
   gap: 10px;
 }
 
-.issue-group h2 {
+.issues__group__heading {
   font-size: 9px;
   font-weight: normal;
   color: #8a8995;
-}
-
-.issue-group li {
-  list-style: none;
 }
 
 .issue {
@@ -158,11 +158,11 @@ main {
   background: #ffffff;
 }
 
-.star-icon-filled path {
+.issue__star-icon--filled path {
   fill: #21233d;
 }
 
-.star-icon-outline path {
+.issue__star-icon--outline path {
   stroke: #e0e0e0;
   fill: transparent;
 }

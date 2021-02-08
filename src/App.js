@@ -9,9 +9,9 @@ import { useState } from "react";
 const OsxButtons = () => {
   return (
     <p className="osx-buttons">
-      <button className="red"></button>
-      <button className="yellow"></button>
-      <button className="green"></button>
+      <button className="osx-buttons__button osx-buttons__button--red"></button>
+      <button className="osx-buttons__button osx-buttons__button--yellow"></button>
+      <button className="osx-buttons__button osx-buttons__button--green"></button>
     </p>
   );
 };
@@ -35,16 +35,16 @@ const Filter = ({ icon, name, count }) => {
     <button className="filter">
       <img src={iconName} alt="icon" />
       <span>{name}</span>
-      <span className="issue-count">{count}</span>
+      <span className="filter__issue-count">{count}</span>
     </button>
   );
 };
 
-const IssueGroup = ({ date, issues }) => {
+const IssuesGroup = ({ date, issues }) => {
   return (
-    <section className="issue-group">
-      <h2>{date}</h2>
-      <ul>
+    <section className="issues__group">
+      <h2 className="issues__group__heading">{date}</h2>
+      <ul className="issues__group__list">
         {issues.map((issue) => (
           <Issue key={issue.name} {...issue} />
         ))}
@@ -61,12 +61,12 @@ const Issue = ({ name, selected }) => {
       <span>{name}</span>
       {toggled ? (
         <StarIcon
-          className="star-icon-filled"
+          className="issue__star-icon--filled"
           onClick={() => setToggled(!toggled)}
         />
       ) : (
         <StarIcon
-          className="star-icon-outline"
+          className="issue__star-icon--outline"
           onClick={() => setToggled(!toggled)}
         />
       )}
@@ -74,24 +74,22 @@ const Issue = ({ name, selected }) => {
   );
 };
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <div className="app-window">
-        <div className="sidebar">
-          <OsxButtons />
-          {data.filters.map((filter) => (
-            <Filter key={filter.name} {...filter} />
-          ))}
-        </div>
-        <main>
-          {data.issues.map((issue) => (
-            <IssueGroup key={issue.date} {...issue} />
-          ))}
-        </main>
+    <div className="app">
+      <div className="sidebar">
+        <OsxButtons />
+        {data.filters.map((filter) => (
+          <Filter key={filter.name} {...filter} />
+        ))}
       </div>
+      <main className="issues">
+        {data.issues.map((issue) => (
+          <IssuesGroup key={issue.date} {...issue} />
+        ))}
+      </main>
     </div>
   );
-}
+};
 
 export default App;
