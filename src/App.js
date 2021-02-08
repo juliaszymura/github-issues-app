@@ -4,6 +4,7 @@ import githubIcon from "./assets/icon-github.svg";
 import closedIssueIcon from "./assets/icon-closed-issue.svg";
 import openIssueIcon from "./assets/icon-open-issue.svg";
 import { ReactComponent as StarIcon } from "./assets/icon-star.svg";
+import { useState } from "react";
 
 const OsxButtons = () => {
   return (
@@ -31,11 +32,11 @@ const Filter = ({ icon, name, count }) => {
   }
 
   return (
-    <p className="filter">
+    <button className="filter">
       <img src={iconName} alt="icon" />
       <span>{name}</span>
       <span className="issue-count">{count}</span>
-    </p>
+    </button>
   );
 };
 
@@ -53,16 +54,22 @@ const IssueGroup = ({ date, issues }) => {
 };
 
 const Issue = ({ name, selected }) => {
-  const starIcon = selected ? (
-    <StarIcon className="star-icon-filled" />
-  ) : (
-    <StarIcon className="star-icon-outline" />
-  );
+  const [toggled, setToggled] = useState(selected);
 
   return (
     <li className="issue">
       <span>{name}</span>
-      {starIcon}
+      {toggled ? (
+        <StarIcon
+          className="star-icon-filled"
+          onClick={() => setToggled(!toggled)}
+        />
+      ) : (
+        <StarIcon
+          className="star-icon-outline"
+          onClick={() => setToggled(!toggled)}
+        />
+      )}
     </li>
   );
 };

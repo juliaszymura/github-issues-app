@@ -84,16 +84,20 @@
 
   font-size: 15px;
   color: white;
-}
-
-/* issue count */
-.filter .issue-count {
-  color: #8a8995;
-  margin-left: auto;
+  background: unset;
+  border: none;
 }
 
 .filter:hover {
   background: #292a48;
+}
+
+.filter:active {
+  background: #434469;
+}
+.filter .issue-count {
+  color: #8a8995;
+  margin-left: auto;
 }
 
 main {
@@ -127,6 +131,7 @@ main {
 
 .issue-group h2 {
   font-size: 9px;
+  font-weight: normal;
   color: #8a8995;
 }
 
