@@ -1,12 +1,41 @@
 import "./App.css";
 import data from "./data.json";
+import githubIcon from "./assets/icon-github.svg";
+import closedIssueIcon from "./assets/icon-closed-issue.svg";
+import openIssueIcon from "./assets/icon-open-issue.svg";
+import { ReactComponent as StarIcon } from "./assets/icon-star.svg";
 
 const OsxButtons = () => {
-  return <></>;
+  return (
+    <p className="osx-buttons">
+      <button className="red"></button>
+      <button className="yellow"></button>
+      <button className="green"></button>
+    </p>
+  );
 };
 
 const Filter = ({ icon, name }) => {
-  return <p className="filter">{name}</p>;
+  let iconName;
+  switch (icon) {
+    case "github":
+      iconName = githubIcon;
+      break;
+    case "open-issue":
+      iconName = openIssueIcon;
+      break;
+    case "closed-issue":
+      iconName = closedIssueIcon;
+      break;
+    default:
+  }
+
+  return (
+    <p className="filter">
+      <span>{name}</span>
+      <img src={iconName} alt="icon" />
+    </p>
+  );
 };
 
 const IssueGroup = ({ date, issues }) => {
@@ -23,10 +52,16 @@ const IssueGroup = ({ date, issues }) => {
 };
 
 const Issue = ({ name, selected }) => {
+  const starIcon = selected ? (
+    <StarIcon fill="black" />
+  ) : (
+    <StarIcon fill="transparent" stroke="black" />
+  );
+
   return (
     <li className="issue">
       <span>{name}</span>
-      <span>state: {selected}</span>
+      {starIcon}
     </li>
   );
 };
@@ -37,7 +72,9 @@ function App() {
       <div className="app-window">
         <div className="sidebar">
           <OsxButtons />
-          <Filter name={data.filters[0].name} />
+          {data.filters.map((filter) => (
+            <Filter key={filter.name} {...filter} />
+          ))}
         </div>
         <main>
           {data.issues.map((issue) => (
