@@ -15,7 +15,7 @@ const OsxButtons = () => {
   );
 };
 
-const Filter = ({ icon, name }) => {
+const Filter = ({ icon, name, count }) => {
   let iconName;
   switch (icon) {
     case "github":
@@ -32,8 +32,9 @@ const Filter = ({ icon, name }) => {
 
   return (
     <p className="filter">
-      <span>{name}</span>
       <img src={iconName} alt="icon" />
+      <span>{name}</span>
+      <span className="issue-count">{count}</span>
     </p>
   );
 };
@@ -55,7 +56,7 @@ const Issue = ({ name, selected }) => {
   const starIcon = selected ? (
     <StarIcon fill="black" />
   ) : (
-    <StarIcon fill="transparent" stroke="black" />
+    <StarIcon fill="transparent" stroke="#E0E0E0" />
   );
 
   return (

@@ -78,11 +78,18 @@
   flex-direction: row;
   justify-content: space-between;
   align-self: stretch;
+  gap: 10px;
 
   padding: 15px;
 
   font-size: 15px;
   color: white;
+}
+
+/* issue count */
+.filter .issue-count {
+  color: #8a8995;
+  margin-left: auto;
 }
 
 .filter:hover {
