@@ -18,7 +18,7 @@
   ],
   "issues": [
     {
-      "date": "2016-07-19",
+      "date": "19-07-2016",
       "issues": [
         {
           "name": "Page changes",
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "date": "2016-07-18",
+      "date": "18-07-2016",
       "issues": [
         {
           "name": "Visual UI Update Review",
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "date": "2016-07-15",
+      "date": "15-07-2016",
       "issues": [
         {
           "name": "Crash update",
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "date": "2016-07-14",
+      "date": "14-07-2016",
       "issues": [
         {
           "name": "Crash issue",
