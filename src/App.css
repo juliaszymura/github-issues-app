@@ -82,10 +82,12 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   align-self: stretch;
   gap: 9px;
 
   padding: 15px;
+  height: 50px;
 
   font-size: 15px;
   color: white;
